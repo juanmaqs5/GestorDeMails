@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.correo.ucp.Usuario;
-import com.correo.ucp.Contactos;
+import com.correo.ucp.MailBox;
+import com.correo.ucp.Contacto;
 import com.correo.ucp.Mail;
 import com.correo.ucp.MailManager;
 
@@ -22,27 +22,27 @@ public class CorreoTest {
 
     @Test
     public void agregarContactosEnElPara_Test(){
-        Usuario destinatario = new Usuario();
-        Usuario destinatario1 = new Usuario();
+        Contacto destinatario = new Contacto();
+        Contacto destinatario1 = new Contacto();
         Mail correo = new Mail();
-        correo.Para.agregarContactos(destinatario);
-        correo.Para.agregarContactos(destinatario1);
-        assertTrue(correo.Para.getPara().contains(destinatario));
-        assertTrue(correo.Para.getPara().contains(destinatario1));
+        correo.para.add(destinatario);
+        correo.para.add(destinatario1);
+        assertTrue(correo.getPara().contains(destinatario));
+        assertTrue(correo.getPara().contains(destinatario1));
     }
 
     @Test
     public void enviarCorreo_Test(){
-        MailManager MailManager = new MailManager();
-        Usuario destinatario = new Usuario();
-        Usuario destinatario1 = new Usuario();
+        MailManager mailManager = new MailManager();
+        Contacto destinatario = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
+        Contacto destinatario1 = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
         Mail correo = new Mail();
-        correo.Para.agregarContactos(destinatario);
-        correo.Para.agregarContactos(destinatario1);
-        MailManager.enviar(correo);
-        assertTrue(correo.Remitente.getBandejaDeEnviado().contains(correo));
-        assertTrue(destinatario.getBandejaDeEntrada().contains(correo));
-        assertTrue(destinatario1.getBandejaDeEntrada().contains(correo));
+        correo.para.add(destinatario);
+        correo.para.add(destinatario1);
+        mailManager.enviar(correo);
+        for (MailBox buzon : mailManager.mailbox){
+            assertTrue(buzon.getMail().contains("gonza.mata2003@gmail.com"));
+        }
     }
 
     @Test

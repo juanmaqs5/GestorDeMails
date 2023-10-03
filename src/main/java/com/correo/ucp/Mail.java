@@ -1,36 +1,39 @@
 package com.correo.ucp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Mail {
-    private String Asunto;
-    private String Contenido;
-    public Usuario Remitente;
-    public Contactos Para;
+    private String asunto;
+    private String contenido;
+    public Contacto remitente;
+    public List<Contacto> para;
 
     public Mail(){
-        this.Para = new Contactos();
-        this.Remitente = new Usuario();
+        this.remitente = new Contacto();
+        this.para = new ArrayList<>();
     }
 
-    public Mail(String Asunto, String Contenido, Usuario Remitente, Contactos Para){
-        this.Asunto = Asunto;
-        this.Contenido = Contenido;
-        this.Para = Para;
-        this.Remitente = Remitente;
+    public Mail(String asunto, String contenido, Contacto remitente, List<Contacto> para){
+        this.asunto = asunto;
+        this.contenido = contenido;
+        this.para = para;
+        this.remitente = remitente;
     }
 
     public String getAsunto(){
-        return Asunto;
+        return asunto;
     }
 
     public String getContenido(){
-        return Contenido;
+        return contenido;
     }
 
-    public Usuario getRemitente(){
-        return Remitente;
+    public Contacto getRemitente(){
+        return remitente;
     }
 
-    public Contactos getPara(){
-        return Para;
+    public List<Contacto> getPara(){
+        return para;
     }
 }
