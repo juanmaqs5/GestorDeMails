@@ -32,17 +32,19 @@ public class CorreoTest {
     }
 
     @Test
-    public void enviarCorreo_Test(){
+    public void crearBuzon_Test(){
         MailManager mailManager = new MailManager();
+        List<Contacto> para = new ArrayList<>();
+        Contacto remitente = new Contacto("Alex", "Alex@gmail.com");
         Contacto destinatario = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
         Contacto destinatario1 = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
-        Mail correo = new Mail();
+        Mail correo = new Mail("Hola", "hola", remitente , para);
         correo.para.add(destinatario);
         correo.para.add(destinatario1);
-        mailManager.enviar(correo);
-        for (MailBox buzon : mailManager.mailbox){
-            assertTrue(buzon.getMail().contains("gonza.mata2003@gmail.com"));
-        }
+        mailManager.crearBuzon(correo);
+        assertTrue(mailManager.listMailbox.get(0).getMail().contains("Alex@gmail.com"));
+        assertTrue(mailManager.listMailbox.get(1).getMail().contains("gonza.mata2003@gmail.com"));
+        assertTrue(mailManager.listMailbox.get(2).getMail().contains("gonza.mata2003@gmail.com"));
     }
 
     @Test

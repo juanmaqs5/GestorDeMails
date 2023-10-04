@@ -6,32 +6,36 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class MailManager{
-    public List<MailBox> mailbox;
+    public List<MailBox> listMailbox;
 
     public MailManager() {
-        mailbox = new ArrayList<>();
+        listMailbox = new ArrayList<>();
     }
-    
-    public void enviar(Mail correo){
+
+    public void crearBuzon(Mail correo){
+        MailBox buzon1 = new MailBox();
+        buzon1.mail = correo.remitente.mail;
+        listMailbox.add(buzon1);
         for (Contacto destinatario : correo.para) {
-            MailBox buzon = new MailBox();
-            buzon.mail = destinatario.mail;
-            mailbox.add(buzon);
+            MailBox buzon2 = new MailBox();
+            buzon2.mail = destinatario.mail;
+            listMailbox.add(buzon2);
         }
     }
 
-    public List<Mail> buscarUsuario(MailBox user) {
-    Predicate<Mail> buscarUsuario = mail -> mail.getRemitente().getMail().equals(user.getMail());
-    List<Mail> listaMailsUsuario = user.getBandejaDeEntrada().stream().filter(emailBuscar).collect(Collectors.toList());
-    return listaMailsUsuario;
+    public void agregarCorreoBandejaDeEnviados(Mail correo) {
+    for (MailBox buzon : listMailbox){
+    Predicate<MailBox> buscarBuzon = m -> correo.getRemitente().getMail().equals(buzon.getMail());
+    }
+    List<Mail> listaMailsUsuario = listMailbox.stream().filter(buscarBuzon).collect(Collectors.toList());
 }
 
     public List<MailBox> getMailBox(){
-        return mailbox;
+        return listMailbox;
     }
 
     public void imprimirMailboxes() {
-        for (MailBox buzon : mailbox) {
+        for (MailBox buzon : listMailbox) {
             System.out.println("Dirección de correo: " + buzon.mail);
         }
     }
