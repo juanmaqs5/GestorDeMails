@@ -2,8 +2,6 @@ package com.correo.ucp;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 public class MailManager{
     public List<MailBox> listMailbox;
@@ -23,7 +21,7 @@ public class MailManager{
         }
     }
 
-    public void agregarCorreoBandejaDeEnviados(Mail correo) {
+    /*public void agregarCorreoBandejaDeEnviados(Mail correo) {
     for (MailBox buzon : listMailbox){
     Predicate<MailBox> buscarBuzon = m -> correo.getRemitente().getMail().equals(buzon.getMail());
     }
@@ -32,7 +30,7 @@ public class MailManager{
 
     public List<MailBox> getMailBox(){
         return listMailbox;
-    }
+    }*/
 
     public void imprimirMailboxes() {
         for (MailBox buzon : listMailbox) {
