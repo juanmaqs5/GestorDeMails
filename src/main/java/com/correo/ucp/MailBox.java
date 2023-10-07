@@ -13,6 +13,12 @@ public class MailBox{
         this.bandejaDeEnviado = new ArrayList<>();
     }
 
+    public MailBox(String mail){
+        this.mail = mail;
+        this.bandejaDeEntrada = new ArrayList<>();
+        this.bandejaDeEnviado = new ArrayList<>();
+    }
+
     public String getMail(){
         return mail;
     }
