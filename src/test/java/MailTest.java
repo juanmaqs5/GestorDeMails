@@ -3,7 +3,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.correo.ucp.Contacto;
+import com.correo.ucp.Contact;
 import com.correo.ucp.Mail;
 
 public class MailTest {
@@ -16,8 +16,8 @@ public class MailTest {
 
     @Test
     public void agregarContactosEnElPara_Test(){
-        Contacto destinatario = new Contacto();
-        Contacto destinatario1 = new Contacto();
+        Contact destinatario = new Contact();
+        Contact destinatario1 = new Contact();
         Mail correo = new Mail();
         correo.para.add(destinatario);
         correo.para.add(destinatario1);

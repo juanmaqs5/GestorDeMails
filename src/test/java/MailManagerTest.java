@@ -1,4 +1,5 @@
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -7,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.correo.ucp.Contacto;
+import com.correo.ucp.Contact;
 import com.correo.ucp.Mail;
 import com.correo.ucp.MailBox;
 import com.correo.ucp.MailManager;
@@ -25,7 +26,7 @@ public class MailManagerTest {
         MailManager mailManager = new MailManager();
         MailBox buzon = new MailBox("pedro@gmail.com");
         mailManager.listMailbox.add(buzon);
-        Contacto remitente = new Contacto("Gonzalo", "gonza.mata2003@gmail.com");
+        Contact remitente = new Contact("Gonzalo", "gonza.mata2003@gmail.com");
         assertEquals(mailManager.comprobarBuzonContactos(remitente), false);
     }
 
@@ -34,17 +35,17 @@ public class MailManagerTest {
         MailManager mailManager = new MailManager();
         MailBox buzon = new MailBox("pedro@gmail.com");
         mailManager.listMailbox.add(buzon);
-        Contacto destinatario = new Contacto("Gonzalo", "pedro@gmail.com");
+        Contact destinatario = new Contact("Gonzalo", "pedro@gmail.com");
         assertEquals(mailManager.comprobarBuzonContactos(destinatario), true);
     }
 
     @Test
     public void crearBuzon_Test(){
         MailManager mailManager = new MailManager();
-        List<Contacto> para = new ArrayList<>();
-        Contacto remitente = new Contacto("Alex", "Alex@gmail.com");
-        Contacto destinatario = new Contacto("Gonzalo","pedro@gmail.com");
-        Contacto destinatario1 = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
+        List<Contact> para = new ArrayList<>();
+        Contact remitente = new Contact("Alex", "Alex@gmail.com");
+        Contact destinatario = new Contact("Gonzalo","pedro@gmail.com");
+        Contact destinatario1 = new Contact("Gonzalo","gonza.mata2003@gmail.com");
         para.add(destinatario);
         para.add(destinatario1);
         Mail correo = new Mail("Hola", "hola", remitente , para);
@@ -57,16 +58,48 @@ public class MailManagerTest {
     @Test
     public void comprobarQueNoRepiteBuzones_Test(){
         MailManager mailManager = new MailManager();
-        List<Contacto> para = new ArrayList<>();
-        Contacto remitente = new Contacto("Alex", "Alex@gmail.com");
-        Contacto destinatario = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
-        Contacto destinatario1 = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
-        Contacto destinatario2 = new Contacto("Gonzalo","gonza.mata2003@gmail.com");
+        List<Contact> para = new ArrayList<>();
+        Contact remitente = new Contact("Alex", "Alex@gmail.com");
+        Contact destinatario = new Contact("Gonzalo","gonza.mata2003@gmail.com");
+        Contact destinatario1 = new Contact("Gonzalo","gonza.mata2003@gmail.com");
+        Contact destinatario2 = new Contact("Gonzalo","gonza.mata2003@gmail.com");
         para.add(destinatario);
         para.add(destinatario1);
         para.add(destinatario2);
         Mail correo = new Mail("Hola", "hola", remitente , para);
         mailManager.crearBuzon(correo);
         assertEquals(mailManager.listMailbox.size(),2);
+    }
+
+    @Test
+    public void agregarCorreoBandejaDeEnviados_Test(){
+        MailManager mailManager = new MailManager();
+        MailBox buzonRemitente = new MailBox("Alex@gmail.com");
+        mailManager.listMailbox.add(buzonRemitente);
+        List<Contact> para = new ArrayList<>();
+        Contact remitente = new Contact("Alex", "Alex@gmail.com");
+        Contact destinatario = new Contact("Gonzalo","gonza.mata2003@gmail.com");
+        para.add(destinatario);
+        Mail correo = new Mail("Hola", "hola", remitente , para);
+        mailManager.agregarCorreoBandejaDeEnviados(correo);
+        assertTrue(buzonRemitente.bandejaDeEnviado.contains(correo)); 
+    }
+
+    @Test
+    public void agregarCorreoBandejaDeEntrada_Test(){
+        MailManager mailManager = new MailManager();
+        MailBox buzonDestinatario = new MailBox("Alex@gmail.com");
+        MailBox buzonDestinatario1 = new MailBox("Pedro@gmail.com");
+        mailManager.listMailbox.add(buzonDestinatario);
+        mailManager.listMailbox.add(buzonDestinatario1);
+        List<Contact> para = new ArrayList<>();
+        Contact remitente = new Contact();
+        Contact destinatario = new Contact("Alex","Alex@gmail.com");
+        Contact destinatario1 = new Contact("Pedro","Pedro@gmail.com");
+        para.add(destinatario);
+        Mail correo = new Mail("Hola", "hola", remitente , para);
+        mailManager.agregarCorreoBandejaDeEntrada(correo);
+        assertTrue(buzonDestinatario.bandejaDeEntrada.contains(correo)); 
+        assertFalse(buzonDestinatario1.bandejaDeEntrada.contains(correo));
     }
 }

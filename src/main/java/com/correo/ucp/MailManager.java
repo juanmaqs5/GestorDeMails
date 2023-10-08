@@ -12,7 +12,7 @@ public class MailManager{
         listMailbox = new ArrayList<>();
     }
 
-    public boolean comprobarBuzonContactos(Contacto contacto){
+    public boolean comprobarBuzonContactos(Contact contacto){
         for(MailBox buzon : listMailbox){
             if(buzon.mail == contacto.mail){
                 return true;
@@ -27,7 +27,7 @@ public class MailManager{
             buzon1.mail = correo.remitente.mail;
             listMailbox.add(buzon1);
             }
-        for (Contacto destinatario : correo.para){
+        for (Contact destinatario : correo.para){
             if(comprobarBuzonContactos(destinatario) == false){
             MailBox buzon2 = new MailBox();
             buzon2.mail = destinatario.mail;
@@ -42,6 +42,21 @@ public class MailManager{
         for(MailBox buzon : listaMailsUsuario){
             buzon.bandejaDeEnviado.add(correo);
         }
+    }
+
+    public void agregarCorreoBandejaDeEntrada(Mail correo) {
+        List<MailBox> listaMailsUsuario = new ArrayList<>();
+        for (Contact destinatario : correo.para) {
+            Predicate<MailBox> buscarBuzon = b -> destinatario.getMail().equals(b.getMail());
+            listaMailsUsuario.addAll(listMailbox.stream().filter(buscarBuzon).collect(Collectors.toList()));
+        }
+        for (MailBox buzon : listaMailsUsuario) {
+            buzon.bandejaDeEntrada.add(correo);
+        }
+    }
+
+    public void enviarCorreo(){
+        
     }
 
     public List<MailBox> getListMailbox() {

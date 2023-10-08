@@ -1,13 +1,13 @@
 package com.correo.ucp;
 
-public class Contacto {
+public class Contact {
     private String nombre;
     public String mail;
  
-    public Contacto(){
+    public Contact(){
     }
 
-    public Contacto(String nombre, String mail){
+    public Contact(String nombre, String mail){
         this.nombre = nombre;
         this.mail = mail;
     }

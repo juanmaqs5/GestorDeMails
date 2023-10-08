@@ -6,15 +6,15 @@ import java.util.List;
 public class Mail {
     private String asunto;
     private String contenido;
-    public Contacto remitente;
-    public List<Contacto> para;
+    public Contact remitente;
+    public List<Contact> para;
 
     public Mail(){
-        this.remitente = new Contacto();
+        this.remitente = new Contact();
         this.para = new ArrayList<>();
     }
 
-    public Mail(String asunto, String contenido, Contacto remitente, List<Contacto> para){
+    public Mail(String asunto, String contenido, Contact remitente, List<Contact> para){
         this.asunto = asunto;
         this.contenido = contenido;
         this.para = para;
@@ -29,11 +29,11 @@ public class Mail {
         return contenido;
     }
 
-    public Contacto getRemitente(){
+    public Contact getRemitente(){
         return remitente;
     }
 
-    public List<Contacto> getPara(){
+    public List<Contact> getPara(){
         return para;
     }
 }
