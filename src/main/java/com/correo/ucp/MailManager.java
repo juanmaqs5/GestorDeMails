@@ -44,7 +44,7 @@ public class MailManager{
         }
     }
 
-    public void agregarCorreoBandejaDeEntrada(Mail correo) {
+    public void agregarCorreoBandejaDeEntrada(Mail correo){
         List<MailBox> listaMailsUsuario = new ArrayList<>();
         for (Contact destinatario : correo.para) {
             Predicate<MailBox> buscarBuzon = b -> destinatario.getMail().equals(b.getMail());
@@ -55,8 +55,10 @@ public class MailManager{
         }
     }
 
-    public void enviarCorreo(){
-        
+    public void enviarCorreo(Mail correo){
+        crearBuzon(correo);
+        agregarCorreoBandejaDeEnviados(correo);
+        agregarCorreoBandejaDeEntrada(correo);
     }
 
     public List<MailBox> getListMailbox() {

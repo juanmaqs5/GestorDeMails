@@ -25,15 +25,31 @@ public class Mail {
         return asunto;
     }
 
+    public void setAsunto(String asunto) {
+        this.asunto = asunto;
+    }
+
     public String getContenido(){
         return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
 
     public Contact getRemitente(){
         return remitente;
     }
 
+    public void setRemitente(Contact remitente) {
+        this.remitente = remitente;
+    }
+
     public List<Contact> getPara(){
         return para;
+    }
+
+    public void setPara(List<Contact> para) {
+        this.para = para;
     }
 }
