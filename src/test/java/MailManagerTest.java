@@ -95,11 +95,27 @@ public class MailManagerTest {
         List<Contact> para = new ArrayList<>();
         Contact remitente = new Contact();
         Contact destinatario = new Contact("Alex","Alex@gmail.com");
-        Contact destinatario1 = new Contact("Pedro","Pedro@gmail.com");
         para.add(destinatario);
         Mail correo = new Mail("Hola", "hola", remitente , para);
         mailManager.agregarCorreoBandejaDeEntrada(correo);
         assertTrue(buzonDestinatario.bandejaDeEntrada.contains(correo)); 
         assertFalse(buzonDestinatario1.bandejaDeEntrada.contains(correo));
+    }
+
+    @Test
+    public void enviarCorreo(){
+        MailManager mailManager = new MailManager();
+        Contact contacto1 = new Contact("Alex", "Alex@gmail.com");
+        Contact contacto2 = new Contact("Juan","Juan@gmail.com");
+        List<Contact> para = new ArrayList<>();
+        para.add(contacto2);
+        Mail correo = new Mail();
+        correo.setRemitente(contacto1);
+        correo.setPara(para);
+        mailManager.enviarCorreo(correo);
+        assertEquals(mailManager.listMailbox.get(0).mail,"Alex@gmail.com");
+        assertEquals(mailManager.listMailbox.get(0).bandejaDeEnviado.get(0),correo);
+        assertEquals(mailManager.listMailbox.get(1).mail,"Juan@gmail.com");
+        assertEquals(mailManager.listMailbox.get(1).bandejaDeEntrada.get(0),correo);
     }
 }

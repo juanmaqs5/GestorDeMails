@@ -22,12 +22,4 @@ public class MailBox{
     public String getMail(){
         return mail;
     }
-
-    public List<Mail> getBandejaDeEnviado(){
-        return bandejaDeEnviado;
-    }
-
-    public List<Mail> getBandejaDeEntrada(){
-        return bandejaDeEntrada;
-    }
 }

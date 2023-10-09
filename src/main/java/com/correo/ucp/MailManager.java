@@ -60,14 +60,4 @@ public class MailManager{
         agregarCorreoBandejaDeEnviados(correo);
         agregarCorreoBandejaDeEntrada(correo);
     }
-
-    public List<MailBox> getListMailbox() {
-        return listMailbox;
-    }
-
-    public void imprimirMailboxes(){
-        for(MailBox buzon : listMailbox){
-            System.out.println("Dirección de correo: " + buzon.mail);
-        }
-    }
 }
