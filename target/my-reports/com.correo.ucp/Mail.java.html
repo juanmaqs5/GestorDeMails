@@ -25,16 +25,32 @@ public class Mail {
 <span class="nc" id="L25">        return asunto;</span>
     }
 
+    public void setAsunto(String asunto) {
+<span class="nc" id="L29">        this.asunto = asunto;</span>
+<span class="nc" id="L30">    }</span>
+
     public String getContenido(){
-<span class="nc" id="L29">        return contenido;</span>
+<span class="nc" id="L33">        return contenido;</span>
     }
+
+    public void setContenido(String contenido) {
+<span class="nc" id="L37">        this.contenido = contenido;</span>
+<span class="nc" id="L38">    }</span>
 
     public Contact getRemitente(){
-<span class="fc" id="L33">        return remitente;</span>
+<span class="fc" id="L41">        return remitente;</span>
     }
 
+    public void setRemitente(Contact remitente) {
+<span class="fc" id="L45">        this.remitente = remitente;</span>
+<span class="fc" id="L46">    }</span>
+
     public List&lt;Contact&gt; getPara(){
-<span class="fc" id="L37">        return para;</span>
+<span class="fc" id="L49">        return para;</span>
     }
+
+    public void setPara(List&lt;Contact&gt; para) {
+<span class="fc" id="L53">        this.para = para;</span>
+<span class="fc" id="L54">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

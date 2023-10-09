@@ -1,6 +1,8 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-email,com.correo.ucp,Mail,6,34,0,0,2,12,2,4,2,4
-email,com.correo.ucp,Main,104,0,4,0,20,0,4,0,2,0
+email,com.correo.ucp,FiltroMailsEnviados,0,36,0,0,0,5,0,4,0,4
+email,com.correo.ucp,FiltroMailsRecibidos,0,30,0,0,0,5,0,3,0,3
+email,com.correo.ucp,Mail,14,42,0,0,6,16,4,6,4,6
+email,com.correo.ucp,Main,121,0,2,0,25,0,3,0,2,0
 email,com.correo.ucp,MailBox,6,32,0,0,2,10,2,3,2,3
-email,com.correo.ucp,MailManager,28,167,3,15,6,34,5,14,3,7
+email,com.correo.ucp,MailManager,21,177,2,16,5,38,3,16,2,8
 email,com.correo.ucp,Contact,3,15,0,0,1,7,1,3,1,3

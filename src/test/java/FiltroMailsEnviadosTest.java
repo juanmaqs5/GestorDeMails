@@ -1,10 +1,19 @@
-package com.correo.ucp;
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
-    public static void main(String[] args) {
+import org.junit.Test;
+
+import com.correo.ucp.Contact;
+import com.correo.ucp.FiltroMailsEnviados;
+import com.correo.ucp.Mail;
+import com.correo.ucp.MailBox;
+import com.correo.ucp.MailManager;
+
+public class FiltroMailsEnviadosTest {
+    @Test
+    public void filtrarMailsEnviadosUsuario(){
         MailManager mailManager = new MailManager();
         MailBox buzon = new MailBox("Alex@gmail.com");
         mailManager.listMailbox.add(buzon);
@@ -23,11 +32,8 @@ public class Main {
         mailManager.enviarCorreo(correo2);
         FiltroMailsEnviados filtroPara = new FiltroMailsEnviados();
         filtroPara.filtrarMailsEnviados(buzon, "Pedro@gmail.com");
-        for (Mail correoFiltrado : filtroPara.listaMailsUsuario) {
-        System.out.println("Asunto: " + correoFiltrado.getAsunto());
-        System.out.println("Contenido: " + correoFiltrado.getContenido());
-        System.out.println("Remitente: " + correoFiltrado.getRemitente().getMail());
-        
-}
-}
+        assertEquals(filtroPara.listaMailsUsuario.size(),2);
+        assertEquals(filtroPara.listaMailsUsuario.get(0), correo);
+        assertEquals(filtroPara.listaMailsUsuario.get(1), correo1);
+    }
 }

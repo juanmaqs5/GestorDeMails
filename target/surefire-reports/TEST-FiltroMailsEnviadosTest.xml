@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="MailManagerTest" time="0.003" tests="7" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FiltroMailsEnviadosTest" time="0.428" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,11 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="crearBuzon_Test" classname="MailManagerTest" time="0"/>
-  <testcase name="comprobarBuzonContactoTrue_Test" classname="MailManagerTest" time="0"/>
-  <testcase name="comprobarQueNoRepiteBuzones_Test" classname="MailManagerTest" time="0"/>
-  <testcase name="comprobarBuzonContactoFalse_Test" classname="MailManagerTest" time="0"/>
-  <testcase name="agregarCorreoBandejaDeEnviados_Test" classname="MailManagerTest" time="0"/>
-  <testcase name="createMailManager_Test" classname="MailManagerTest" time="0"/>
-  <testcase name="agregarCorreoBandejaDeEntrada_Test" classname="MailManagerTest" time="0.001"/>
+  <testcase name="filtrarMailsEnviadosUsuario" classname="FiltroMailsEnviadosTest" time="0.164"/>
 </testsuite>
