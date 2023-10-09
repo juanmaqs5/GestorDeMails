@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -11,7 +12,11 @@ public class MailTest {
     @Test
     public void createCorreo_Test(){
         Mail correo = new Mail();
+        correo.setAsunto("Saludo");
+        correo.setContenido("Hola");
         assertNotNull(correo);
+        assertEquals(correo.getAsunto(),"Saludo");
+        assertEquals(correo.getContenido(),"Hola");
     }
 
     @Test
