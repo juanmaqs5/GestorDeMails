@@ -93,7 +93,7 @@ public class MailManagerTest {
         mailManager.listMailbox.add(buzonDestinatario);
         mailManager.listMailbox.add(buzonDestinatario1);
         List<Contact> para = new ArrayList<>();
-        Contact remitente = new Contact();
+        Contact remitente = new Contact(null,"gonza@gmail.com");
         Contact destinatario = new Contact("Alex","Alex@gmail.com");
         para.add(destinatario);
         Mail correo = new Mail("Hola", "hola", remitente , para);
@@ -103,15 +103,13 @@ public class MailManagerTest {
     }
 
     @Test
-    public void enviarCorreo(){
+    public void enviarCorreo_Test(){
         MailManager mailManager = new MailManager();
         Contact contacto1 = new Contact("Alex", "Alex@gmail.com");
         Contact contacto2 = new Contact("Juan","Juan@gmail.com");
         List<Contact> para = new ArrayList<>();
         para.add(contacto2);
-        Mail correo = new Mail();
-        correo.setRemitente(contacto1);
-        correo.setPara(para);
+        Mail correo = new Mail(null,null,contacto1,para);
         mailManager.enviarCorreo(correo);
         assertEquals(mailManager.listMailbox.get(0).mail,"Alex@gmail.com");
         assertEquals(mailManager.listMailbox.get(0).bandejaDeEnviado.get(0),correo);

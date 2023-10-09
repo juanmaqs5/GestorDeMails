@@ -4,16 +4,16 @@ public class Contact {
     private String nombre;
     public String mail;
  
-<span class="fc" id="L7">    public Contact(){</span>
-<span class="fc" id="L8">    }</span>
-
-<span class="fc" id="L10">    public Contact(String nombre, String mail){</span>
+<span class="fc" id="L7">    public Contact(String nombre, String mail) {</span>
+<span class="pc bpc" id="L8" title="1 of 4 branches missed.">        if (mail == null || mail.isEmpty()) {</span>
+<span class="fc" id="L9">            throw new IllegalArgumentException();</span>
+        }
 <span class="fc" id="L11">        this.nombre = nombre;</span>
 <span class="fc" id="L12">        this.mail = mail;</span>
 <span class="fc" id="L13">    }</span>
 
     public String getNombre(){
-<span class="nc" id="L16">        return nombre;</span>
+<span class="fc" id="L16">        return nombre;</span>
     }
 
     public String getMail(){

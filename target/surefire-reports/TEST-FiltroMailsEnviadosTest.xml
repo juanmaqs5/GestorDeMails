@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FiltroMailsEnviadosTest" time="0.428" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="FiltroMailsEnviadosTest" time="0.006" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-21\bin"/>
-    <property name="sun.java.command" value="C:\Users\MIGUEP~1\AppData\Local\Temp\surefire15409214710534845952\surefirebooter9861023546983577012.jar C:\Users\MIGUE PC\AppData\Local\Temp\surefire15409214710534845952 2023-10-09T08-25-56_720-jvmRun1 surefire994890842301267490tmp surefire_011911604898310767696tmp"/>
+    <property name="sun.java.command" value="C:\Users\MIGUEP~1\AppData\Local\Temp\surefire13961675107170467149\surefirebooter15568897855429925717.jar C:\Users\MIGUE PC\AppData\Local\Temp\surefire13961675107170467149 2023-10-09T13-04-42_348-jvmRun1 surefire951446967232342605tmp surefire_015811447671805266863tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\MIGUE PC\Desktop\Paradigma II\Correo\correo\target\test-classes;c:\Users\MIGUE PC\Desktop\Paradigma II\Correo\correo\target\classes;C:\Users\MIGUE PC\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\MIGUE PC\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\MIGUEP~1\AppData\Local\Temp\surefire15409214710534845952\surefirebooter9861023546983577012.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\MIGUEP~1\AppData\Local\Temp\surefire13961675107170467149\surefirebooter15568897855429925717.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21+35-LTS-2513"/>
@@ -58,5 +58,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="filtrarMailsEnviadosUsuario" classname="FiltroMailsEnviadosTest" time="0.164"/>
+  <testcase name="filtrarMailsEnviadosUsuario_Test" classname="FiltroMailsEnviadosTest" time="0"/>
 </testsuite>

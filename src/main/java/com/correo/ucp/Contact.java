@@ -4,10 +4,10 @@ public class Contact {
     private String nombre;
     public String mail;
  
-    public Contact(){
-    }
-
-    public Contact(String nombre, String mail){
+    public Contact(String nombre, String mail) {
+        if (mail == null || mail.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         this.nombre = nombre;
         this.mail = mail;
     }

@@ -13,7 +13,7 @@ import com.correo.ucp.MailManager;
 
 public class FiltroMailsRecibidosTest {
     @Test
-    public void filtrarMailsRecibidosUsuario(){
+    public void filtrarMailsRecibidosUsuario_Test(){
         MailManager mailManager = new MailManager();
         MailBox buzon = new MailBox("gonza.mata2003@gmail.com");
         mailManager.listMailbox.add(buzon);
@@ -22,15 +22,13 @@ public class FiltroMailsRecibidosTest {
         Contact remitente1 = new Contact("Pedro", "Pedro@gmail.com");
         Contact destinatario = new Contact("Gonzalo","gonza.mata2003@gmail.com");
         para.add(destinatario);
-        Mail correo = new Mail();
+        Mail correo = new Mail(null,null,remitente,null);
         correo.setPara(para);
-        correo.setRemitente(remitente);
-        Mail correo1 = new Mail();
+        Mail correo1 = new Mail(null,null,remitente,null);
         correo1.setPara(para);
-        correo1.setRemitente(remitente);
-        Mail correo2 = new Mail();
-        correo2.setPara(para);
+        Mail correo2 = new Mail(null,null,remitente,null);
         correo2.setRemitente(remitente1);
+        correo2.setPara(para);
         mailManager.enviarCorreo(correo);
         mailManager.enviarCorreo(correo1);
         mailManager.enviarCorreo(correo2);

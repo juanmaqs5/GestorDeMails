@@ -1,20 +1,17 @@
 package com.correo.ucp;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class Mail {
+public class Mail{
     private String asunto;
     private String contenido;
     public Contact remitente;
     public List<Contact> para;
-
-    public Mail(){
-        this.remitente = new Contact();
-        this.para = new ArrayList<>();
-    }
-
+    
     public Mail(String asunto, String contenido, Contact remitente, List<Contact> para){
+        if (remitente == null) {
+            throw new IllegalArgumentException();
+        }
         this.asunto = asunto;
         this.contenido = contenido;
         this.para = para;
@@ -42,6 +39,10 @@ public class Mail {
     }
 
     public void setRemitente(Contact remitente) {
+        if (remitente == null) {
+            throw new IllegalArgumentException("El remitente no puede ser nulo.");
+    }
+        
         this.remitente = remitente;
     }
 

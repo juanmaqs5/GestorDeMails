@@ -13,7 +13,7 @@ import com.correo.ucp.MailManager;
 
 public class FiltroMailsEnviadosTest {
     @Test
-    public void filtrarMailsEnviadosUsuario(){
+    public void filtrarMailsEnviadosUsuario_Test(){
         MailManager mailManager = new MailManager();
         MailBox buzon = new MailBox("Alex@gmail.com");
         mailManager.listMailbox.add(buzon);

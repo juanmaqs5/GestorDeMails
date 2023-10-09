@@ -13,7 +13,7 @@ import com.correo.ucp.MailManager;
 
 public class FiltroMailsEnviadosYContenidoTest {
     @Test
-    public void filtrarMailsEnviadosYContenido(){
+    public void filtrarMailsEnviadosYContenido_Test(){
         MailManager mailManager = new MailManager();
         MailBox buzon = new MailBox("Alex@gmail.com");
         mailManager.listMailbox.add(buzon);
@@ -24,20 +24,17 @@ public class FiltroMailsEnviadosYContenidoTest {
         List<Contact> para1 = new ArrayList<>();
         para.add(contacto2);
         para1.add(contacto3);
-        Mail correo = new Mail();
+        Mail correo = new Mail(null,null,contacto1,null);
         correo.setAsunto("Saludo");
         correo.setContenido("Hola Juan");
-        correo.setRemitente(contacto1);
         correo.setPara(para);
-        Mail correo1 = new Mail();
+        Mail correo1 = new Mail(null,null,contacto1,null);
         correo1.setAsunto("Plata");
         correo1.setContenido("Juan me debes plata");
-        correo1.setRemitente(contacto1);
         correo1.setPara(para);
-        Mail correo2 = new Mail();
+        Mail correo2 = new Mail(null,null,contacto1,null);
         correo2.setAsunto("Saludo");
         correo2.setContenido("Hola Pedro");
-        correo2.setRemitente(contacto1);
         correo2.setPara(para1);
         mailManager.enviarCorreo(correo);
         mailManager.enviarCorreo(correo1);
